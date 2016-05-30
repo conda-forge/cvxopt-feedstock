@@ -11,10 +11,14 @@ source:
   fn: cvxopt-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/c/cvxopt/cvxopt-{{ version }}.tar.gz
   md5: d4ff0a0e51aba93f838a70302a088eea
+  patches:
+    # Fix the environment variable used for SuiteSparse includes.
+    # See this PR ( https://github.com/cvxopt/cvxopt/pull/60 ).
+    - cvxopt_PR_60.diff
 
 build:
   skip: true  # [win]
-  number: 200
+  number: 201
   features:
     - blas_{{ variant }}
 
@@ -27,6 +31,7 @@ requirements:
     - gsl
     - fftw
     - glpk
+    - suitesparse 4.4.*
 
   run:
     - python

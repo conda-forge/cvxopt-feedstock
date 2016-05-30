@@ -1,0 +1,13 @@
+diff --git setup.py setup.py
+index 031ad53..6d909fa 100644
+--- setup.py
++++ setup.py
+@@ -87,7 +87,7 @@
+ DSDP_INC_DIR = os.environ.get("CVXOPT_DSDP_INC_DIR",DSDP_INC_DIR)
+ SUITESPARSE_EXT_LIB = os.environ.get("CVXOPT_SUITESPARSE_EXT_LIB",SUITESPARSE_EXT_LIB)
+ SUITESPARSE_LIB_DIR = os.environ.get("CVXOPT_AMD_EXT_LIB",SUITESPARSE_LIB_DIR)
+-SUITESPARSE_INC_DIR = os.environ.get("CVXOPT_AMD_EXT_LIB",SUITESPARSE_INC_DIR)
++SUITESPARSE_INC_DIR = os.environ.get("CVXOPT_AMD_EXT_INC",SUITESPARSE_INC_DIR)
+ 
+ extmods = []
+ 

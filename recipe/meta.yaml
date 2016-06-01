@@ -16,7 +16,11 @@ source:
     # See this PR ( https://github.com/cvxopt/cvxopt/pull/60 ).
     - cvxopt_PR_60.diff
     # Add a patch that fixes the linking order and adds a missing library.
-    - setup.py.patch
+    # See this commit
+    # ( https://github.com/cvxopt/cvxopt/commit/007c1a0ea9df9a54e9f99cacbde56a6047518375 ).
+    # Also, see this PR to show how this was backported.
+    # ( https://github.com/cvxopt/cvxopt/pull/61 )
+    - cvxopt_PR_61.diff
 
 build:
   skip: true  # [win]

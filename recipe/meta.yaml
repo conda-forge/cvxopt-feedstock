@@ -11,10 +11,19 @@ source:
   fn: cvxopt-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/c/cvxopt/cvxopt-{{ version }}.tar.gz
   md5: d4ff0a0e51aba93f838a70302a088eea
+  patches:
+    # Add a patch that fixes the linking order and adds a missing library.
+    # Also, fixes the environment variable used for SuiteSparse includes.
+    # See this commit
+    # ( https://github.com/cvxopt/cvxopt/commit/4e89755cb6aaf6493a49a3ad99dd5d5e007e1a5a ).
+    # ( https://github.com/cvxopt/cvxopt/commit/007c1a0ea9df9a54e9f99cacbde56a6047518375 ).
+    # Also, see this PR to show how these were backported.
+    # ( https://github.com/cvxopt/cvxopt/pull/61 )
+    - cvxopt_PR_61.diff
 
 build:
   skip: true  # [win]
-  number: 200
+  number: 201
   features:
     - blas_{{ variant }}
 
@@ -27,6 +36,7 @@ requirements:
     - gsl
     - fftw
     - glpk
+    - suitesparse 4.4.*
 
   run:
     - python

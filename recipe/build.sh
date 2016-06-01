@@ -18,7 +18,7 @@ export CVXOPT_GLPK_LIB_DIR="${PREFIX}/lib"
 export CVXOPT_GLPK_INC_DIR="${PREFIX}/include"
 
 export CVXOPT_SUITESPARSE_EXT_LIB=1
-export CVXOPT_AMD_EXT_LIB="${PREFIX}/lib"
-export CVXOPT_AMD_EXT_INC="${PREFIX}/include"
+export CVXOPT_SUITESPARSE_LIB_DIR="${PREFIX}/lib"
+export CVXOPT_SUITESPARSE_INC_DIR="${PREFIX}/include"
 
 $PYTHON setup.py install --single-version-externally-managed --record=record.txt

@@ -10,11 +10,11 @@ package:
 source:
   fn: cvxopt-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/c/cvxopt/cvxopt-{{ version }}.tar.gz
-  md5: a56e7b23d76c2b5aaf3bea2a7c245ea7
+  sha256: 8f157e7397158812cabd340b68546f1baa55a486ed0aad8bc26877593dc2983d
 
 build:
   skip: true  # [win]
-  number: 0
+  number: 200
   features:
     - blas_{{ variant }}
 
@@ -27,7 +27,7 @@ requirements:
     - gsl
     - fftw
     - glpk
-    - suitesparse 4.4.*
+    - suitesparse 4.5.*
 
   run:
     - python
@@ -44,6 +44,7 @@ test:
 about:
   home: http://cvxopt.org
   license: GPL 3
+  license_file: LICENSE
   summary: Convex optimization package
 
 extra:

@@ -27,7 +27,7 @@ requirements:
     - gsl
     - fftw
     - glpk
-    - suitesparse 4.5.*
+    - suitesparse 4.4.*
 
   run:
     - python

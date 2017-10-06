@@ -14,7 +14,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 200
+  number: 201
   features:
     - blas_{{ variant }}
 
@@ -23,20 +23,20 @@ requirements:
     - python
     - setuptools
     - blas 1.1 {{ variant }}
-    - openblas 0.2.19|0.2.19.*
+    - openblas 0.2.20|0.2.20.*
     - gsl
     - fftw
     - glpk
-    - suitesparse 4.5.*
+    - suitesparse 4.5.4
 
   run:
     - python
     - blas 1.1 {{ variant }}
-    - openblas 0.2.19|0.2.19.*
+    - openblas 0.2.20|0.2.20.*
     - gsl
     - fftw
     - glpk
-    - suitesparse 4.5.*
+    - suitesparse 4.5.4
 
 test:
   imports:

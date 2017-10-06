@@ -14,7 +14,7 @@ source:
 
 build:
   skip: true  # [win]
-  number: 200
+  number: 201
   features:
     - blas_{{ variant }}
 
@@ -27,7 +27,7 @@ requirements:
     - gsl
     - fftw
     - glpk
-    - suitesparse 4.5.*
+    - suitesparse 4.5.4
 
   run:
     - python
@@ -36,7 +36,7 @@ requirements:
     - gsl
     - fftw
     - glpk
-    - suitesparse 4.5.*
+    - suitesparse 4.5.4
 
 test:
   imports:

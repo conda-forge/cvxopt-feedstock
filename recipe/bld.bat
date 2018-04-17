@@ -1,6 +1,4 @@
 
-call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64\vcvars64.bat"
-
 set CVXOPT_MSVC=1
 set "CVXOPT_BLAS_LIB_DIR=%LIBRARY_LIB%"
 set CVXOPT_BLAS_LIB=openblas

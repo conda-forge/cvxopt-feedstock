@@ -28,7 +28,7 @@ requirements:
     - fftw    # [not win]
     - glpk
     - suitesparse 4.5.4   # [not win]
-    - suitesparse 5.1.2   # [win]
+    - suitesparse 5.1.*   # [win]
 
   run:
     - python
@@ -38,7 +38,7 @@ requirements:
     - fftw    # [not win]
     - glpk
     - suitesparse 4.5.4   # [not win]
-    - suitesparse 5.1.2   # [win]
+    - suitesparse 5.1.*   # [win]
 
 test:
   imports:

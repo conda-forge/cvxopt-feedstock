@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+if __name__ == '__main__':
+    import sys
+    import py.test
 
-import nose
-nose.main()
+    sys.exit(py.test.main())

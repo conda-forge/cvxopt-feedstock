@@ -17,7 +17,6 @@ build:
   number: 200
   features:
     - blas_{{ variant }}
-    - vc14    # [win and py>=35]
 
 requirements:
   build:
@@ -30,8 +29,6 @@ requirements:
     - glpk
     - suitesparse 4.5.4   # [not win]
     - suitesparse 5.1.2   # [win]
-    - vc 14   # [win and py35]
-    - vc 14   # [win and py36]
 
   run:
     - python
@@ -42,8 +39,6 @@ requirements:
     - glpk
     - suitesparse 4.5.4   # [not win]
     - suitesparse 5.1.2   # [win]
-    - vc 14   # [win and py35]
-    - vc 14   # [win and py36]
 
 test:
   imports:
@@ -52,7 +47,7 @@ test:
     - tests/*
     - examples/*
   requires:
-    - nose
+    - pytest
 
 about:
   home: http://cvxopt.org

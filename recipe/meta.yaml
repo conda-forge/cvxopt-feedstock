@@ -27,7 +27,7 @@ requirements:
     - gsl     # [not win]
     - fftw    # [not win]
     - glpk
-    - suitesparse 4.5.4   # [not win]
+    - suitesparse 4.5.6   # [not win]
     - suitesparse 5.1.*   # [win]
 
   run:
@@ -37,7 +37,7 @@ requirements:
     - gsl     # [not win]
     - fftw    # [not win]
     - glpk
-    - suitesparse 4.5.4   # [not win]
+    - suitesparse 4.5.6   # [not win]
     - suitesparse 5.1.*   # [win]
 
 test:

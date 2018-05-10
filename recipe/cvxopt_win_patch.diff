@@ -1,0 +1,107 @@
+diff --git a/setup.py b/setup.py
+index 17f251a..7b9f1c6 100644
+--- a/setup.py
++++ b/setup.py
+@@ -125,6 +125,7 @@ if BUILD_GSL:
+     gsl = Extension('gsl', libraries = M_LIB + ['gsl'] + BLAS_LIB,
+         include_dirs = [ GSL_INC_DIR ],
+         library_dirs = [ GSL_LIB_DIR, BLAS_LIB_DIR ],
++        define_macros = [('GSL_DLL',''),('WIN32','')],
+         extra_link_args = BLAS_EXTRA_LINK_ARGS,
+         sources = ['src/C/gsl.c'] )
+     extmods += [gsl];
+@@ -133,6 +134,7 @@ if BUILD_FFTW:
+     fftw = Extension('fftw', libraries = ['fftw3'] + BLAS_LIB,
+         include_dirs = [ FFTW_INC_DIR ],
+         library_dirs = [ FFTW_LIB_DIR, BLAS_LIB_DIR ],
++        define_macros = [('FFTW_DLL',''),('FFTW_NO_Complex','')],
+         extra_link_args = BLAS_EXTRA_LINK_ARGS,
+         sources = ['src/C/fftw.c'] )
+     extmods += [fftw];
+diff --git a/src/C/dsdp.c b/src/C/dsdp.c
+index ece6822..efac9e0 100644
+--- a/src/C/dsdp.c
++++ b/src/C/dsdp.c
+@@ -409,44 +409,39 @@ static PyObject* solvesdp(PyObject *self, PyObject *args,
+     if (info == DSDP_CONVERGED) {
+         switch (status){
+             case DSDP_PDFEASIBLE:
+-                PyTuple_SET_ITEM(t, 0, (PyObject *)
+ #if PY_MAJOR_VERSION >= 3
+-                    PyUnicode_FromString("DSDP_PDFEASIBLE"));
++                PyTuple_SET_ITEM(t, 0, (PyObject *)PyUnicode_FromString("DSDP_PDFEASIBLE"));
+ #else
+-                    PyString_FromString("DSDP_PDFEASIBLE"));
++                PyTuple_SET_ITEM(t, 0, (PyObject *)PyString_FromString("DSDP_PDFEASIBLE"));
+ #endif
+                 break;
+             case DSDP_UNBOUNDED:
+-                PyTuple_SET_ITEM(t, 0, (PyObject *)
+ #if PY_MAJOR_VERSION >= 3
+-                    PyUnicode_FromString("DSDP_UNBOUNDED"));
++                PyTuple_SET_ITEM(t, 0, (PyObject *)PyUnicode_FromString("DSDP_UNBOUNDED"));
+ #else
+-                    PyString_FromString("DSDP_UNBOUNDED"));
++                PyTuple_SET_ITEM(t, 0, (PyObject *)PyString_FromString("DSDP_UNBOUNDED"));
+ #endif
+                 break;
+             case DSDP_INFEASIBLE:
+-                PyTuple_SET_ITEM(t, 0, (PyObject *)
+ #if PY_MAJOR_VERSION >= 3
+-                    PyUnicode_FromString("DSDP_INFEASIBLE"));
++                PyTuple_SET_ITEM(t, 0, (PyObject *)PyUnicode_FromString("DSDP_INFEASIBLE"));
+ #else
+-                    PyString_FromString("DSDP_INFEASIBLE"));
++                PyTuple_SET_ITEM(t, 0, (PyObject *)PyString_FromString("DSDP_INFEASIBLE"));
+ #endif
+                 break;
+             case DSDP_PDUNKNOWN:
+-                PyTuple_SET_ITEM(t, 0, (PyObject *)
+ #if PY_MAJOR_VERSION >= 3
+-                    PyUnicode_FromString("DSDP_UNKNOWN"));
++                PyTuple_SET_ITEM(t, 0, (PyObject *)PyUnicode_FromString("DSDP_UNKNOWN"));
+ #else
+-                    PyString_FromString("DSDP_UNKNOWN"));
++                PyTuple_SET_ITEM(t, 0, (PyObject *)PyString_FromString("DSDP_UNKNOWN"));
+ #endif
+                 break;
+         }
+     } else {
+-        PyTuple_SET_ITEM(t, 0, (PyObject *)
+ #if PY_MAJOR_VERSION >= 3
+-        PyUnicode_FromString("DSDP_UNKNOWN"));
++        PyTuple_SET_ITEM(t, 0, (PyObject *)PyUnicode_FromString("DSDP_UNKNOWN"));
+ #else
+-        PyString_FromString("DSDP_UNKNOWN"));
++        PyTuple_SET_ITEM(t, 0, (PyObject *)PyString_FromString("DSDP_UNKNOWN"));
+ #endif
+     }
+ 
+diff --git a/src/C/fftw.c b/src/C/fftw.c
+index 124774a..b0b78e3 100644
+--- a/src/C/fftw.c
++++ b/src/C/fftw.c
+@@ -207,7 +207,11 @@ static PyObject *idft(PyObject *self, PyObject *args, PyObject *kwrds)
+   Py_END_ALLOW_THREADS
+ 
+   number a;
++#ifndef _MSC_VER
+   a.z = 1.0/m;
++#else
++  a.z = _Cbuild(1.0/m,0.0);
++#endif
+   int mn = m*n, ix = 1;
+   zscal_(&mn, &a.z, MAT_BUFZ(X), &ix);
+ 
+@@ -313,7 +317,11 @@ static PyObject *idftn(PyObject *self, PyObject *args, PyObject *kwrds)
+   }
+ 
+   number a;
++#ifndef _MSC_VER
+   a.z = 1.0/proddim;
++#else
++  a.z = _Cbuild(1.0/proddim,0.0);
++#endif
+ 
+   int ix = 1;
+   zscal_(&proddim, &a.z, MAT_BUFZ(X), &ix);

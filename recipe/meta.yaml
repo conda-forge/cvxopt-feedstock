@@ -11,9 +11,10 @@ source:
   fn: cvxopt-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/c/cvxopt/cvxopt-{{ version }}.tar.gz
   sha256: 3296c9d49b7dcb894b20db5d7d1c1a443912b4d82358e03f836575e8398e0d60
+  patches: cvxopt_win_patch.diff   # [win]
 
 build:
-  skip: true  # [win32 or (win and py<35)]
+  skip: true  # [win and py<35]
   number: 200
   features:
     - blas_{{ variant }}
@@ -24,20 +25,22 @@ requirements:
     - setuptools
     - blas 1.1 {{ variant }}
     - openblas 0.2.20|0.2.20.*
-    - gsl     # [not win]
-    - fftw    # [not win]
+    - gsl
+    - fftw
+    - dsdp   # [not win]
     - glpk
-    - suitesparse 4.5.6   # [not win]
+    - suitesparse 4.5.6|4.5.6.*   # [not win]
     - suitesparse 5.1.*   # [win]
 
   run:
     - python
     - blas 1.1 {{ variant }}
     - openblas 0.2.20|0.2.20.*
-    - gsl     # [not win]
-    - fftw    # [not win]
+    - gsl
+    - fftw
+    - dsdp   # [not win]
     - glpk
-    - suitesparse 4.5.6   # [not win]
+    - suitesparse 4.5.6|4.5.6.*   # [not win]
     - suitesparse 5.1.*   # [win]
 
 test:

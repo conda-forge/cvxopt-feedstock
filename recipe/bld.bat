@@ -26,4 +26,4 @@ set "CVXOPT_SUITESPARSE_INC_DIR=%LIBRARY_PREFIX%\include\suitesparse"
 
 %PYTHON% setup.py install --single-version-externally-managed --record=record.txt
 
-copy src\c\cvxopt.h %LIBRARY_PREFIX%\include
+copy src\C\cvxopt.h %LIBRARY_PREFIX%\include

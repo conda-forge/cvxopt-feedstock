@@ -26,4 +26,4 @@ export CVXOPT_SUITESPARSE_INC_DIR="${PREFIX}/include"
 
 $PYTHON setup.py install --single-version-externally-managed --record=record.txt
 
-cp src/c/cvxopt.h ${PREFIX}/include
+cp src/C/cvxopt.h ${PREFIX}/include

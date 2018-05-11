@@ -17,7 +17,13 @@ export CVXOPT_BUILD_GLPK=1
 export CVXOPT_GLPK_LIB_DIR="${PREFIX}/lib"
 export CVXOPT_GLPK_INC_DIR="${PREFIX}/include"
 
+export CVXOPT_BUILD_DSDP=1
+export CVXOPT_DSDP_LIB_DIR="${PREFIX}/lib"
+export CVXOPT_DSDP_INC_DIR="${PREFIX}/include"
+
 export CVXOPT_SUITESPARSE_LIB_DIR="${PREFIX}/lib"
 export CVXOPT_SUITESPARSE_INC_DIR="${PREFIX}/include"
 
 $PYTHON setup.py install --single-version-externally-managed --record=record.txt
+
+cp src/C/cvxopt.h ${PREFIX}/include

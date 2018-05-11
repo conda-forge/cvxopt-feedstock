@@ -14,14 +14,16 @@ Summary: Convex optimization package
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/cvxopt-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/cvxopt-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/cvxopt-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/cvxopt-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/cvxopt-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/cvxopt-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/cvxopt-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/cvxopt-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/cvxopt-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/cvxopt-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/cvxopt-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/cvxopt-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/cvxopt/badges/version.svg)](https://anaconda.org/conda-forge/cvxopt)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/cvxopt/badges/downloads.svg)](https://anaconda.org/conda-forge/cvxopt)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-cvxopt-green.svg)](https://anaconda.org/conda-forge/cvxopt) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/cvxopt.svg)](https://anaconda.org/conda-forge/cvxopt) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/cvxopt.svg)](https://anaconda.org/conda-forge/cvxopt) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/cvxopt.svg)](https://anaconda.org/conda-forge/cvxopt) |
 
 Installing cvxopt
 =================

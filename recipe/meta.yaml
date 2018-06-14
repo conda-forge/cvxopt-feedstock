@@ -15,7 +15,7 @@ source:
 
 build:
   skip: true  # [win and py<35]
-  number: 201
+  number: 202
   features:
     - blas_{{ variant }}
 
@@ -27,7 +27,7 @@ requirements:
     - openblas
     - gsl
     - fftw
-    - dsdp   # [not win]
+    - dsdp
     - glpk
     - suitesparse 4.5.6|4.5.6.*   # [not win]
     - suitesparse 5.1.*   # [win]
@@ -38,7 +38,7 @@ requirements:
     - openblas
     - gsl
     - fftw
-    - dsdp   # [not win]
+    - dsdp
     - glpk
     - suitesparse 4.5.6|4.5.6.*   # [not win]
     - suitesparse 5.1.*   # [win]

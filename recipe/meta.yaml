@@ -15,12 +15,14 @@ source:
 
 build:
   skip: true  # [win and py<35]
-  number: 202
+  number: 203
   features:
     - blas_{{ variant }}
 
 requirements:
   build:
+    - {{ compiler('c') }}
+  host:
     - python
     - setuptools
     - blas 1.1 {{ variant }}

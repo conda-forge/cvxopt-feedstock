@@ -1,3 +1,5 @@
+c_compiler:
+- toolchain_c
 glpk:
 - '4.65'
 gsl:

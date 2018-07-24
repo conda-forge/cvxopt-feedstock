@@ -1,5 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
+c_compiler:
+- toolchain_c
 glpk:
 - '4.65'
 gsl:

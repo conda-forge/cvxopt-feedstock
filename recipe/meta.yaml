@@ -21,6 +21,8 @@ build:
 
 requirements:
   build:
+    - {{ compiler('c') }}
+  host:
     - python
     - setuptools
     - blas 1.1 {{ variant }}

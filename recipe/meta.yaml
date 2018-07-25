@@ -32,8 +32,10 @@ test:
   imports:
     - cvxopt
   source_files:
-    - tests/*.py
+    - tests/*
     - examples/*
+  requires:
+    - pytest
 
 about:
   home: http://cvxopt.org

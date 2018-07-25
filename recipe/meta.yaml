@@ -27,6 +27,9 @@ requirements:
   run:
     - python
     - dsdp
+    - gsl
+    - fftw
+    - glpk
 
 test:
   imports:

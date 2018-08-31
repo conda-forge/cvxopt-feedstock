@@ -11,11 +11,10 @@ source:
   fn: cvxopt-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/c/cvxopt/cvxopt-{{ version }}.tar.gz
   sha256: 12e3cfda982576b0b9b597d297aaf3172efa765a20fbed6f3c066aa0c48ee817
-  patches: cvxopt_win_patch.diff   # [win]
 
 build:
   skip: true  # [win and py<35]
-  number: 0
+  number: 200
   features:
     - blas_{{ variant }}
 

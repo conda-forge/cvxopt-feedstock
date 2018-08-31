@@ -1,5 +1,9 @@
 c_compiler:
 - vs2015
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
 glpk:
 - '4.65'
 gsl:
@@ -18,3 +22,6 @@ pin_run_as_build:
     max_pin: x.x
 python:
 - '3.5'
+zip_keys:
+- - python
+  - c_compiler

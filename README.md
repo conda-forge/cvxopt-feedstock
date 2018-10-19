@@ -1,7 +1,7 @@
 About cvxopt
 ============
 
-Home: http://cvxopt.org
+Home: https://cvxopt.org
 
 Package license: GPL 3
 

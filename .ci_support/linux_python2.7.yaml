@@ -11,7 +11,7 @@ glpk:
 gsl:
 - '2.2'
 openblas:
-- 0.2.20
+- 0.3.3
 pin_run_as_build:
   glpk:
     max_pin: x.x

@@ -14,7 +14,7 @@ source:
 
 build:
   skip: true  # [win and py<35]
-  number: 200
+  number: 1200
   features:
     - blas_{{ variant }}
 

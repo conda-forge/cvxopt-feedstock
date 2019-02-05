@@ -1,4 +1,4 @@
-{% set version = "1.2.2" %}
+{% set version = "1.2.3" %}
 
 {% set variant = "openblas" %}
 
@@ -10,11 +10,11 @@ package:
 source:
   fn: cvxopt-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/c/cvxopt/cvxopt-{{ version }}.tar.gz
-  sha256: 0038962d489bb1b2cdbcffad862b7b8394e45ff053b307e9411b2729a98937a6
+  sha256: ea62a2a1b8e2db3a6ae44ac394f58e4620149af226c250c6f2b18739b48cfc21
 
 build:
   skip: true  # [win and py<35]
-  number: 200
+  number: 0
   features:
     - blas_{{ variant }}
 

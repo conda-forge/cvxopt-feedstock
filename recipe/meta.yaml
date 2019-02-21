@@ -5,25 +5,37 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/c/cvxopt/cvxopt-{{ version }}.tar.gz
-  sha256: 3296c9d49b7dcb894b20db5d7d1c1a443912b4d82358e03f836575e8398e0d60
+  - url: https://pypi.io/packages/source/c/cvxopt/cvxopt-{{ version }}.tar.gz
+    sha256: 3296c9d49b7dcb894b20db5d7d1c1a443912b4d82358e03f836575e8398e0d60
+    patches:
+      - 0001-define-DLL-preprocessors-on-windows.patch
+      - 0002-fix-setting-complex-vars-on-win.patch            # [win]
+
+  # on windows, building suitesparse in directly works much better than trying to build it separately and link it in
+  - url: http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-5.2.0.tar.gz           # [win]
+    sha256: 3c46c035ea8217649958a0f73360e825b0c9dcca4e32a9349d2c7678c0d48813              # [win]
+    folder: suitesparse                                                                   # [win]
 
 build:
   number: 0
+  skip: True  # [blas_impl == 'openblas' and win]
+  skip: true  # [win and py<35]
 
 requirements:
   build:
     - {{ compiler("c") }}
-    - c99-to-c89          # [win and vc<14]
+    # - c99-to-c89                     # [win and vc<14]
   host:
+    - dsdp
+    - fftw                           # [blas_impl != "mkl"]
+    - glpk
+    - gsl
+    - mkl-devel  {{ mkl }}           # [blas_impl == "mkl"]
+    - openblas-devel {{ openblas }}  # [blas_impl == "openblas"]
     - python
     - setuptools
-    - mkl-devel  {{ mkl }}  # [blas_impl == "mkl"]
-    - openblas-devel {{ openblas }}  # [blas_impl == "openblas"]
-    - gsl
-    - fftw
-    - glpk
-    - suitesparse    # [unix]
+    # suitesparse is linked against on windows, and compiled-in on windows, because yeah, windows.
+    - suitesparse                    # [unix]
 
   run:
     - python
@@ -31,6 +43,14 @@ requirements:
 test:
   imports:
     - cvxopt
+    - cvxopt.base
+    - cvxopt.blas
+    - cvxopt.cholmod
+    - cvxopt.lapack
+    - cvxopt.misc_solvers
+    - cvxopt.umfpack
+    - cvxopt.glpk
+    - cvxopt.fftw
   source_files:
     - tests/*
     - examples/*

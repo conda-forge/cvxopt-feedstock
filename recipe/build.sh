@@ -19,7 +19,12 @@ export CVXOPT_GSL_INC_DIR="${PREFIX}/include"
 
 export CVXOPT_BUILD_FFTW=1
 export CVXOPT_FFTW_LIB_DIR="${PREFIX}/lib"
-export CVXOPT_FFTW_INC_DIR="${PREFIX}/include"
+
+if [ "$blas_impl" == "mkl" ]; then
+    export CVXOPT_FFTW_INC_DIR="${PREFIX}/include/fftw"
+else
+    export CVXOPT_FFTW_INC_DIR="${PREFIX}/include"
+fi
 
 export CVXOPT_BUILD_GLPK=1
 export CVXOPT_GLPK_LIB_DIR="${PREFIX}/lib"

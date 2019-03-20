@@ -1,8 +1,5 @@
 {% set version = "1.2.3" %}
 
-{% set variant = "openblas" %}
-
-
 package:
   name: cvxopt
   version: {{ version }}
@@ -14,18 +11,16 @@ source:
 
 build:
   skip: true  # [win and py<35]
-  number: 200
-  features:
-    - blas_{{ variant }}
+  number: 201
 
 requirements:
   build:
     - {{ compiler('c') }}
   host:
+    - libblas
+    - liblapack
     - python
     - setuptools
-    - blas 1.1 {{ variant }}
-    - openblas
     - gsl
     - fftw
     - dsdp
@@ -35,8 +30,6 @@ requirements:
 
   run:
     - python
-    - blas 1.1 {{ variant }}
-    - openblas
     - gsl
     - fftw
     - dsdp

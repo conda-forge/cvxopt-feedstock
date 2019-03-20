@@ -2,8 +2,8 @@
 
 
 export CVXOPT_BLAS_LIB_DIR="${PREFIX}/lib"
-export CVXOPT_BLAS_LIB="openblas"
-export CVXOPT_LAPACK_LIB="openblas"
+export CVXOPT_BLAS_LIB="blas"
+export CVXOPT_LAPACK_LIB="lapack"
 
 export CVXOPT_BUILD_GSL=1
 export CVXOPT_GSL_LIB_DIR="${PREFIX}/lib"

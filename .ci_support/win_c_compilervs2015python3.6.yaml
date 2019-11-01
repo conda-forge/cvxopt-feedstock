@@ -4,6 +4,8 @@ channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
+fftw:
+- '3'
 glpk:
 - '4.65'
 gsl:
@@ -13,6 +15,8 @@ libblas:
 liblapack:
 - 3.8.0 *netlib
 pin_run_as_build:
+  fftw:
+    max_pin: x
   glpk:
     max_pin: x.x
   python:

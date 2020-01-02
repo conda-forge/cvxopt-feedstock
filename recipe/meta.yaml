@@ -11,7 +11,7 @@ source:
 
 build:
   skip: true  # [win and py<35]
-  number: 205
+  number: 206
 
 requirements:
   build:
@@ -25,7 +25,7 @@ requirements:
     - fftw
     - dsdp
     - glpk
-    - suitesparse 4.5.6|4.5.6.*   # [not win]
+    - suitesparse         # [not win]
     - suitesparse 5.1.*   # [win]
 
   run:
@@ -34,7 +34,7 @@ requirements:
     - fftw
     - dsdp
     - glpk
-    - suitesparse 4.5.6|4.5.6.*   # [not win]
+    - suitesparse         # [not win]
     - suitesparse 5.1.*   # [win]
 
 test:

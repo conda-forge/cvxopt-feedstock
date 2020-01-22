@@ -1,4 +1,4 @@
-{% set version = "1.2.3" %}
+{% set version = "1.2.4" %}
 
 package:
   name: cvxopt
@@ -7,11 +7,11 @@ package:
 source:
   fn: cvxopt-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/c/cvxopt/cvxopt-{{ version }}.tar.gz
-  sha256: ea62a2a1b8e2db3a6ae44ac394f58e4620149af226c250c6f2b18739b48cfc21
+  sha256: fa5ced96d71e4c3e6d50735e2ac4b8cf125c388cd77b1c5937febedb5f3a2fc1
 
 build:
   skip: true  # [win and py<35]
-  number: 206
+  number: 0
 
 requirements:
   build:

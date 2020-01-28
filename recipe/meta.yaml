@@ -10,8 +10,8 @@ source:
   sha256: fa5ced96d71e4c3e6d50735e2ac4b8cf125c388cd77b1c5937febedb5f3a2fc1
 
 build:
-  skip: true  # [win and py<35]
-  number: 200
+  skip: true  # [py<35]
+  number: 201
 
 requirements:
   build:

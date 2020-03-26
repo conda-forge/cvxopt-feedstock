@@ -28,12 +28,12 @@ requirements:
     - python
     - setuptools
     - gsl
-    - fftw                           # [blas_impl != "mkl"]
+    - fftw
     - blas
     - dsdp
     - glpk
     # suitesparse is linked against on windows, and compiled-in on windows, because yeah, windows.
-    - suitesparse                    # [not win]
+    - suitesparse         # [not win]
 
   run:
     - python
@@ -41,7 +41,7 @@ requirements:
     - fftw
     - dsdp
     - glpk
-    - suitesparse                    # [not win]
+    - suitesparse         # [not win]
 
 test:
   imports:

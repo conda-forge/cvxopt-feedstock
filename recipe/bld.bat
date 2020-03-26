@@ -17,11 +17,7 @@ set "CVXOPT_GSL_INC_DIR=%LIBRARY_PREFIX%\include\gsl"
 
 set CVXOPT_BUILD_FFTW=1
 set "CVXOPT_FFTW_LIB_DIR=%LIBRARY_PREFIX%\lib"
-if "%blas_impl%" == "mkl" (
-    set "CVXOPT_FFTW_INC_DIR=%LIBRARY_PREFIX%\include\fftw"
-) else (
-    set "CVXOPT_FFTW_INC_DIR=%LIBRARY_PREFIX%\include"
-)
+set "CVXOPT_FFTW_INC_DIR=%LIBRARY_PREFIX%\include"
 
 set CVXOPT_BUILD_GLPK=1
 set "CVXOPT_GLPK_LIB_DIR=%LIBRARY_PREFIX%\lib"

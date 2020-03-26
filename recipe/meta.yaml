@@ -29,8 +29,7 @@ requirements:
     - setuptools
     - gsl
     - fftw                           # [blas_impl != "mkl"]
-    - mkl-devel {{ mkl }}            # [blas_impl == "mkl"]
-    - openblas-devel {{ openblas }}  # [blas_impl == "openblas"]
+    - blas
     - dsdp
     - glpk
     # suitesparse is linked against on windows, and compiled-in on windows, because yeah, windows.

@@ -1,3 +1,5 @@
+blas_impl:
+- openblas
 c_compiler:
 - gcc
 c_compiler_version:
@@ -18,15 +20,19 @@ libblas:
 - 3.8 *netlib
 liblapack:
 - 3.8.0 *netlib
+openblas:
+- 0.3.6
 pin_run_as_build:
   fftw:
     max_pin: x
   glpk:
     max_pin: x.x
+  openblas:
+    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- '3.8'
+- 3.6.* *_cpython
 suitesparse:
 - '5.6'

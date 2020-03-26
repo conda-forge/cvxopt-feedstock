@@ -1,5 +1,11 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
+blas_impl:
+- blis
 c_compiler:
-- vs2015
+- clang
+c_compiler_version:
+- '9'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
@@ -14,16 +20,27 @@ libblas:
 - 3.8 *netlib
 liblapack:
 - 3.8.0 *netlib
+macos_machine:
+- x86_64-apple-darwin13.4.0
+macos_min_version:
+- '10.9'
+mkl:
+- '2019'
+openblas:
+- 0.3.6
 pin_run_as_build:
   fftw:
     max_pin: x
   glpk:
     max_pin: x.x
+  mkl:
+    max_pin: x
+  openblas:
+    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- '3.8'
-zip_keys:
-- - python
-  - c_compiler
+- 3.6.* *_cpython
+suitesparse:
+- '5.6'

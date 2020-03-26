@@ -1,0 +1,42 @@
+blas_impl:
+- openblas
+c_compiler:
+- gcc
+c_compiler_version:
+- '7'
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
+docker_image:
+- condaforge/linux-anvil-comp7
+fftw:
+- '3'
+glpk:
+- '4.65'
+gsl:
+- '2.6'
+libblas:
+- 3.8 *netlib
+liblapack:
+- 3.8.0 *netlib
+mkl:
+- '2019'
+openblas:
+- 0.3.6
+pin_run_as_build:
+  fftw:
+    max_pin: x
+  glpk:
+    max_pin: x.x
+  mkl:
+    max_pin: x
+  openblas:
+    max_pin: x.x.x
+  python:
+    min_pin: x.x
+    max_pin: x.x
+python:
+- 3.6.* *_cpython
+suitesparse:
+- '5.6'

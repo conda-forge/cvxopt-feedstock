@@ -1,17 +1,23 @@
 {% set version = "1.2.4" %}
+{% set suitesparse_for_win_version = "5.2.0" %}
 
 package:
   name: cvxopt
   version: {{ version }}
 
 source:
-  fn: cvxopt-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/c/cvxopt/cvxopt-{{ version }}.tar.gz
-  sha256: fa5ced96d71e4c3e6d50735e2ac4b8cf125c388cd77b1c5937febedb5f3a2fc1
+  - url: https://pypi.io/packages/source/c/cvxopt/cvxopt-{{ version }}.tar.gz
+    sha256: fa5ced96d71e4c3e6d50735e2ac4b8cf125c388cd77b1c5937febedb5f3a2fc1
+
+  # on windows, building suitesparse in directly works much better than trying to build it separately and link it in
+  - url: http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-{{ suitesparse_for_win_version }}.tar.gz  # [win]
+    sha256: 3c46c035ea8217649958a0f73360e825b0c9dcca4e32a9349d2c7678c0d48813                                 # [win]
+    folder: suitesparse                                                                                      # [win]
 
 build:
   skip: true  # [py<35]
-  number: 202
+  skip: true  # [win and blas_impl == 'openblas']
+  number: 203
 
 requirements:
   build:
@@ -22,11 +28,13 @@ requirements:
     - python
     - setuptools
     - gsl
-    - fftw
+    - fftw                           # [blas_impl != "mkl"]
+    - mkl-devel {{ mkl }}            # [blas_impl == "mkl"]
+    - openblas-devel {{ openblas }}  # [blas_impl == "openblas"]
     - dsdp
     - glpk
-    - suitesparse         # [not win]
-    - suitesparse 5.1.*   # [win]
+    # suitesparse is linked against on windows, and compiled-in on windows, because yeah, windows.
+    - suitesparse                    # [not win]
 
   run:
     - python
@@ -34,12 +42,19 @@ requirements:
     - fftw
     - dsdp
     - glpk
-    - suitesparse         # [not win]
-    - suitesparse 5.1.*   # [win]
+    - suitesparse                    # [not win]
 
 test:
   imports:
     - cvxopt
+    - cvxopt.base
+    - cvxopt.blas
+    - cvxopt.cholmod
+    - cvxopt.lapack
+    - cvxopt.misc_solvers
+    - cvxopt.umfpack
+    - cvxopt.glpk
+    - cvxopt.fftw
   source_files:
     - tests/*
     - examples/*

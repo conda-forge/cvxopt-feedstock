@@ -1,5 +1,5 @@
 {% set version = "1.2.4" %}
-{% set suitesparse_for_win_version = "5.2.0" %}
+{% set suitesparse_for_win_version = "5.7.1" %}
 
 package:
   name: cvxopt
@@ -10,9 +10,9 @@ source:
     sha256: fa5ced96d71e4c3e6d50735e2ac4b8cf125c388cd77b1c5937febedb5f3a2fc1
 
   # on windows, building suitesparse in directly works much better than trying to build it separately and link it in
-  - url: http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-{{ suitesparse_for_win_version }}.tar.gz  # [win]
-    sha256: 3c46c035ea8217649958a0f73360e825b0c9dcca4e32a9349d2c7678c0d48813                                 # [win]
-    folder: suitesparse                                                                                      # [win]
+  - url: https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v{{ suitesparse_for_win_version }}.tar.gz  # [win]
+    sha256: 5ba5add1663d51a1b6fb128b50fe869b497f3096765ff7f8212f0ede044b9557                                   # [win]
+    folder: suitesparse                                                                                        # [win]
 
 build:
   skip: true  # [py<35]

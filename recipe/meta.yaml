@@ -1,17 +1,23 @@
 {% set version = "1.2.4" %}
+{% set suitesparse_for_win_version = "5.7.1" %}
 
 package:
   name: cvxopt
   version: {{ version }}
 
 source:
-  fn: cvxopt-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/c/cvxopt/cvxopt-{{ version }}.tar.gz
-  sha256: fa5ced96d71e4c3e6d50735e2ac4b8cf125c388cd77b1c5937febedb5f3a2fc1
+  - url: https://pypi.io/packages/source/c/cvxopt/cvxopt-{{ version }}.tar.gz
+    sha256: fa5ced96d71e4c3e6d50735e2ac4b8cf125c388cd77b1c5937febedb5f3a2fc1
+
+  # on windows, building suitesparse in directly works much better than trying to build it separately and link it in
+  - url: https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v{{ suitesparse_for_win_version }}.tar.gz  # [win]
+    sha256: 5ba5add1663d51a1b6fb128b50fe869b497f3096765ff7f8212f0ede044b9557                                   # [win]
+    folder: suitesparse                                                                                        # [win]
 
 build:
   skip: true  # [py<35]
-  number: 202
+  skip: true  # [win and blas_impl != 'mkl']
+  number: 203
 
 requirements:
   build:
@@ -23,10 +29,12 @@ requirements:
     - setuptools
     - gsl
     - fftw
+    - blas
+    - mkl-devel {{ mkl }}  # [win and blas_impl == "mkl"]
     - dsdp
     - glpk
-    - suitesparse         # [not win]
-    - suitesparse 5.1.*   # [win]
+    # suitesparse is linked against on windows, and compiled-in on windows, because yeah, windows.
+    - suitesparse          # [not win]
 
   run:
     - python
@@ -34,12 +42,19 @@ requirements:
     - fftw
     - dsdp
     - glpk
-    - suitesparse         # [not win]
-    - suitesparse 5.1.*   # [win]
+    - suitesparse          # [not win]
 
 test:
   imports:
     - cvxopt
+    - cvxopt.base
+    - cvxopt.blas
+    - cvxopt.cholmod
+    - cvxopt.lapack
+    - cvxopt.misc_solvers
+    - cvxopt.umfpack
+    - cvxopt.glpk
+    - cvxopt.fftw
   source_files:
     - tests/*
     - examples/*
@@ -48,7 +63,7 @@ test:
 
 about:
   home: https://cvxopt.org
-  license: GPL 3
+  license: GPL-3.0-or-later
   license_file: LICENSE
   summary: Convex optimization package
   doc_url: https://cvxopt.org/userguide

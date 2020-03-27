@@ -1,5 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
+blas_impl:
+- blis
 c_compiler:
 - clang
 c_compiler_version:
@@ -31,6 +33,6 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- '3.8'
+- 3.6.* *_cpython
 suitesparse:
 - '5.6'

@@ -1,0 +1,40 @@
+BUILD:
+- aarch64-conda_cos7-linux-gnu
+blas_impl:
+- openblas
+c_compiler:
+- gcc
+c_compiler_version:
+- '7'
+cdt_arch:
+- aarch64
+cdt_name:
+- cos7
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge main
+docker_image:
+- condaforge/linux-anvil-aarch64
+fftw:
+- '3'
+glpk:
+- '4.65'
+gsl:
+- '2.6'
+libblas:
+- 3.8 *netlib
+liblapack:
+- 3.8.0 *netlib
+pin_run_as_build:
+  fftw:
+    max_pin: x
+  glpk:
+    max_pin: x.x
+  python:
+    min_pin: x.x
+    max_pin: x.x
+python:
+- 3.6.* *_cpython
+suitesparse:
+- '5.6'

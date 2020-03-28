@@ -4,7 +4,7 @@ set CVXOPT_MSVC=1
 :: the cvxopt builder for suitesparse looks for static ".lib" libraries (not ".dll"!)
 set "CVXOPT_BLAS_LIB_DIR=%LIBRARY_PREFIX%\lib"
 
-set CVXOPT_BLAS_LIB=blis
+set CVXOPT_BLAS_LIB=blas
 set CVXOPT_LAPACK_LIB=lapack
 
 set CVXOPT_BUILD_GSL=1

@@ -1,5 +1,5 @@
 blas_impl:
-- mkl
+- blis
 c_compiler:
 - vs2015
 channel_sources:

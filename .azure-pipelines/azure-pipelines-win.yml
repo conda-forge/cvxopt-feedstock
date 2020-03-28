@@ -10,6 +10,18 @@ jobs:
   strategy:
     maxParallel: 4
     matrix:
+      win_blas_implblispython3.6.____cpython:
+        CONFIG: win_blas_implblispython3.6.____cpython
+        CONDA_BLD_PATH: D:\\bld\\
+        UPLOAD_PACKAGES: True
+      win_blas_implblispython3.7.____cpython:
+        CONFIG: win_blas_implblispython3.7.____cpython
+        CONDA_BLD_PATH: D:\\bld\\
+        UPLOAD_PACKAGES: True
+      win_blas_implblispython3.8.____cpython:
+        CONFIG: win_blas_implblispython3.8.____cpython
+        CONDA_BLD_PATH: D:\\bld\\
+        UPLOAD_PACKAGES: True
       win_blas_implmklpython3.6.____cpython:
         CONFIG: win_blas_implmklpython3.6.____cpython
         CONDA_BLD_PATH: D:\\bld\\
@@ -20,6 +32,18 @@ jobs:
         UPLOAD_PACKAGES: True
       win_blas_implmklpython3.8.____cpython:
         CONFIG: win_blas_implmklpython3.8.____cpython
+        CONDA_BLD_PATH: D:\\bld\\
+        UPLOAD_PACKAGES: True
+      win_blas_implopenblaspython3.6.____cpython:
+        CONFIG: win_blas_implopenblaspython3.6.____cpython
+        CONDA_BLD_PATH: D:\\bld\\
+        UPLOAD_PACKAGES: True
+      win_blas_implopenblaspython3.7.____cpython:
+        CONFIG: win_blas_implopenblaspython3.7.____cpython
+        CONDA_BLD_PATH: D:\\bld\\
+        UPLOAD_PACKAGES: True
+      win_blas_implopenblaspython3.8.____cpython:
+        CONFIG: win_blas_implopenblaspython3.8.____cpython
         CONDA_BLD_PATH: D:\\bld\\
         UPLOAD_PACKAGES: True
   steps:

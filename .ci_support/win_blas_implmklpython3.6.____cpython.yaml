@@ -18,6 +18,8 @@ liblapack:
 - 3.8.0 *netlib
 mkl:
 - '2019'
+openblas:
+- 0.3.6
 pin_run_as_build:
   fftw:
     max_pin: x
@@ -25,6 +27,8 @@ pin_run_as_build:
     max_pin: x.x
   mkl:
     max_pin: x
+  openblas:
+    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x

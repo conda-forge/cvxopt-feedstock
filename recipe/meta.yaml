@@ -16,8 +16,7 @@ source:
 
 build:
   skip: true  # [py<35]
-  skip: true  # [win and blas_impl != 'mkl']
-  number: 203
+  number: 204
 
 requirements:
   build:
@@ -29,12 +28,15 @@ requirements:
     - setuptools
     - gsl
     - fftw
-    - blas
-    - mkl-devel {{ mkl }}  # [win and blas_impl == "mkl"]
     - dsdp
     - glpk
     # suitesparse is linked against on windows, and compiled-in on windows, because yeah, windows.
     - suitesparse          # [not win]
+    # headers needed to compile suitesparse ("blas-devel" should do the same as the
+    # following - without blas_impl-selectors - but apparently this does not work)
+    - mkl-devel {{ mkl }}  # [win and blas_impl == "mkl"]
+    - openblas             # [win and blas_impl == "openblas"]
+    - blis                 # [win and blas_impl == "blis"]
 
   run:
     - python

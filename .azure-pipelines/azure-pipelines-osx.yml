@@ -10,32 +10,14 @@ jobs:
   strategy:
     maxParallel: 8
     matrix:
-      osx_blas_implblispython3.6.____cpython:
-        CONFIG: osx_blas_implblispython3.6.____cpython
+      osx_python3.6.____cpython:
+        CONFIG: osx_python3.6.____cpython
         UPLOAD_PACKAGES: True
-      osx_blas_implblispython3.7.____cpython:
-        CONFIG: osx_blas_implblispython3.7.____cpython
+      osx_python3.7.____cpython:
+        CONFIG: osx_python3.7.____cpython
         UPLOAD_PACKAGES: True
-      osx_blas_implblispython3.8.____cpython:
-        CONFIG: osx_blas_implblispython3.8.____cpython
-        UPLOAD_PACKAGES: True
-      osx_blas_implmklpython3.6.____cpython:
-        CONFIG: osx_blas_implmklpython3.6.____cpython
-        UPLOAD_PACKAGES: True
-      osx_blas_implmklpython3.7.____cpython:
-        CONFIG: osx_blas_implmklpython3.7.____cpython
-        UPLOAD_PACKAGES: True
-      osx_blas_implmklpython3.8.____cpython:
-        CONFIG: osx_blas_implmklpython3.8.____cpython
-        UPLOAD_PACKAGES: True
-      osx_blas_implopenblaspython3.6.____cpython:
-        CONFIG: osx_blas_implopenblaspython3.6.____cpython
-        UPLOAD_PACKAGES: True
-      osx_blas_implopenblaspython3.7.____cpython:
-        CONFIG: osx_blas_implopenblaspython3.7.____cpython
-        UPLOAD_PACKAGES: True
-      osx_blas_implopenblaspython3.8.____cpython:
-        CONFIG: osx_blas_implopenblaspython3.8.____cpython
+      osx_python3.8.____cpython:
+        CONFIG: osx_python3.8.____cpython
         UPLOAD_PACKAGES: True
 
   steps:

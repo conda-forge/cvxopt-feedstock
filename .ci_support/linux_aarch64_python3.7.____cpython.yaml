@@ -1,7 +1,5 @@
 BUILD:
 - aarch64-conda_cos7-linux-gnu
-blas_impl:
-- openblas
 c_compiler:
 - gcc
 c_compiler_version:

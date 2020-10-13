@@ -1,13 +1,9 @@
 c_compiler:
-- gcc
-c_compiler_version:
-- '7'
+- vs2017
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
-docker_image:
-- condaforge/linux-anvil-comp7
 fftw:
 - '3'
 glpk:
@@ -29,4 +25,6 @@ pin_run_as_build:
 python:
 - 3.6.* *_cpython
 suitesparse:
-- '5.6'
+- '5.4'
+target_platform:
+- win-64

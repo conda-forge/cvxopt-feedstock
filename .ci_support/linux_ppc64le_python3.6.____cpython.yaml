@@ -30,3 +30,5 @@ python:
 - 3.6.* *_cpython
 suitesparse:
 - '5.6'
+target_platform:
+- linux-ppc64le

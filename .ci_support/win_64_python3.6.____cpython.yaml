@@ -25,6 +25,6 @@ pin_run_as_build:
 python:
 - 3.6.* *_cpython
 suitesparse:
-- '5.4'
+- '5'
 target_platform:
 - win-64

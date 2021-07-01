@@ -1,19 +1,9 @@
-BUILD:
-- aarch64-conda_cos7-linux-gnu
 c_compiler:
-- gcc
-c_compiler_version:
-- '9'
-cdt_arch:
-- aarch64
-cdt_name:
-- cos7
+- vs2017
 channel_sources:
-- conda-forge
+- conda-forge,defaults
 channel_targets:
 - conda-forge main
-docker_image:
-- quay.io/condaforge/linux-anvil-aarch64
 fftw:
 - '3'
 glpk:
@@ -33,8 +23,8 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.6.* *_73_pypy
+- 3.7.* *_73_pypy
 suitesparse:
 - '5'
 target_platform:
-- linux-aarch64
+- win-64

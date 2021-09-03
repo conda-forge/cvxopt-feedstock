@@ -39,6 +39,11 @@ requirements:
 
   run:
     - python
+    - gsl
+    - fftw
+    - dsdp
+    - glpk
+    - suitesparse   # [not win]
 
 test:
   imports:

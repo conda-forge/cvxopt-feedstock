@@ -1,4 +1,4 @@
-{% set version = "1.2.6" %}
+{% set version = "1.2.7" %}
 {% set suitesparse_for_win_version = "5.7.2" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/c/cvxopt/cvxopt-{{ version }}.tar.gz
-    sha256: a4c433706fd0ad9d47e7f222773a7f7601766fb8e74b633524b3c3fce29aa73e
+    sha256: 3f9db1f4d4e820aaea81d6fc21054c89dc6327c84f935dd5a1eda1af11e1d504
 
   # on windows, building suitesparse in directly works much better than trying to build it separately and link it in
   - url: https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v{{ suitesparse_for_win_version }}.tar.gz  # [win]
@@ -18,7 +18,7 @@ source:
 
 build:
   skip: true  # [py<35]
-  number: 1
+  number: 0
 
 requirements:
   build:

@@ -1,5 +1,5 @@
 c_compiler:
-- vs2017
+- vs2019
 channel_sources:
 - conda-forge
 channel_targets:
@@ -7,13 +7,13 @@ channel_targets:
 fftw:
 - '3'
 glpk:
-- '4.65'
+- '5.0'
 gsl:
 - '2.7'
 libblas:
-- 3.8 *netlib
+- 3.9 *netlib
 liblapack:
-- 3.8 *netlib
+- 3.9 *netlib
 pin_run_as_build:
   fftw:
     max_pin: x

@@ -1,9 +1,19 @@
+BUILD:
+- aarch64-conda_cos7-linux-gnu
 c_compiler:
-- vs2019
+- gcc
+c_compiler_version:
+- '10'
+cdt_arch:
+- aarch64
+cdt_name:
+- cos7
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
+docker_image:
+- quay.io/condaforge/linux-anvil-cos7-x86_64
 fftw:
 - '3'
 glpk:
@@ -15,16 +25,12 @@ libblas:
 liblapack:
 - 3.9 *netlib
 pin_run_as_build:
-  fftw:
-    max_pin: x
-  glpk:
-    max_pin: x.x
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.7.* *_cpython
+- 3.11.* *_cpython
 suitesparse:
 - '5'
 target_platform:
-- win-64
+- linux-aarch64

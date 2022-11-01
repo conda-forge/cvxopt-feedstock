@@ -2,6 +2,6 @@
 # -*- coding: utf-8 -*-
 if __name__ == '__main__':
     import sys
-    import py.test
+    import pytest
 
-    sys.exit(py.test.main())
+    sys.exit(pytest.main())

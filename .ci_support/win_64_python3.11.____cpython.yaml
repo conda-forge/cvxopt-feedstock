@@ -1,9 +1,5 @@
-MACOSX_DEPLOYMENT_TARGET:
-- '10.9'
 c_compiler:
-- clang
-c_compiler_version:
-- '14'
+- vs2019
 channel_sources:
 - conda-forge
 channel_targets:
@@ -18,19 +14,13 @@ libblas:
 - 3.9 *netlib
 liblapack:
 - 3.9 *netlib
-macos_machine:
-- x86_64-apple-darwin13.4.0
 pin_run_as_build:
-  fftw:
-    max_pin: x
-  glpk:
-    max_pin: x.x
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.7.* *_cpython
+- 3.11.* *_cpython
 suitesparse:
 - '5'
 target_platform:
-- osx-64
+- win-64

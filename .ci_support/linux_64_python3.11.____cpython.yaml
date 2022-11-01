@@ -3,7 +3,7 @@ c_compiler:
 c_compiler_version:
 - '10'
 cdt_name:
-- cos7
+- cos6
 channel_sources:
 - conda-forge
 channel_targets:
@@ -21,16 +21,12 @@ libblas:
 liblapack:
 - 3.9 *netlib
 pin_run_as_build:
-  fftw:
-    max_pin: x
-  glpk:
-    max_pin: x.x
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.7.* *_cpython
+- 3.11.* *_cpython
 suitesparse:
 - '5'
 target_platform:
-- linux-ppc64le
+- linux-64

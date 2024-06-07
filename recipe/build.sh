@@ -22,7 +22,7 @@ export CVXOPT_DSDP_LIB_DIR="${PREFIX}/lib"
 export CVXOPT_DSDP_INC_DIR="${PREFIX}/include"
 
 export CVXOPT_SUITESPARSE_LIB_DIR="${PREFIX}/lib"
-export CVXOPT_SUITESPARSE_INC_DIR="${PREFIX}/include"
+export CVXOPT_SUITESPARSE_INC_DIR="${PREFIX}/include/suitesparse"
 
 $PYTHON setup.py install --single-version-externally-managed --record=record.txt
 

@@ -1,9 +1,11 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '11.0'
+MACOSX_SDK_VERSION:
+- '11.0'
 c_compiler:
 - clang
 c_compiler_version:
-- '16'
+- '17'
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
@@ -34,3 +36,6 @@ suitesparse:
 - '7'
 target_platform:
 - osx-arm64
+zip_keys:
+- - python
+  - channel_sources

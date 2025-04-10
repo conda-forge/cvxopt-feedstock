@@ -65,6 +65,7 @@ test:
   requires:
     - pytest
     - pip
+    - m2-grep   # [win]
 
 about:
   home: https://cvxopt.org

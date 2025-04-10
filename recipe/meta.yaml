@@ -18,7 +18,7 @@ source:
 
 build:
   skip: true  # [py<35]
-  number: 3
+  number: 4
 
 requirements:
   build:
@@ -31,6 +31,7 @@ requirements:
     - liblapack
     - python
     - setuptools
+    - setuptools_scm
     - gsl
     - fftw
     - dsdp
@@ -59,8 +60,11 @@ test:
   source_files:
     - tests/*
     - examples/*
+  commands:
+    - pip list | grep cvxopt | grep {{ version }}
   requires:
     - pytest
+    - pip
 
 about:
   home: https://cvxopt.org

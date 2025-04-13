@@ -1,4 +1,4 @@
-
+set "SETUPTOOLS_SCM_PRETEND_VERSION=%PKG_VERSION%"
 
 set CVXOPT_MSVC=1
 :: the cvxopt builder for suitesparse looks for static ".lib" libraries (not ".dll"!)

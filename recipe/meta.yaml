@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  - url: https://pypi.io/packages/source/c/cvxopt/cvxopt-{{ version }}.tar.gz
+  - url: https://pypi.org/packages/source/c/cvxopt/cvxopt-{{ version }}.tar.gz
     sha256: 3461fa42c1b2240ba4da1d985ca73503914157fc4c77417327ed6d7d85acdbe6
 
   # on windows, building suitesparse in directly works much better than trying to build it separately and link it in
@@ -18,7 +18,7 @@ source:
 
 build:
   skip: true  # [py<35]
-  number: 3
+  number: 4
 
 requirements:
   build:
@@ -31,6 +31,7 @@ requirements:
     - liblapack
     - python
     - setuptools
+    - setuptools_scm
     - gsl
     - fftw
     - dsdp
@@ -59,8 +60,12 @@ test:
   source_files:
     - tests/*
     - examples/*
+  commands:
+    - pip list | grep cvxopt | grep {{ version }}
   requires:
     - pytest
+    - pip
+    - m2-grep   # [win]
 
 about:
   home: https://cvxopt.org

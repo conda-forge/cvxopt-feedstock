@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export SETUPTOOLS_SCM_PRETEND_VERSION="${PKG_VERSION}"
 
 export CVXOPT_BLAS_LIB_DIR="${PREFIX}/lib"
 export CVXOPT_BLAS_LIB="blas"

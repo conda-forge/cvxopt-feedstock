@@ -1,7 +1,7 @@
 c_compiler:
 - gcc
 c_compiler_version:
-- '13'
+- '14'
 c_stdlib:
 - sysroot
 c_stdlib_version:
@@ -34,3 +34,6 @@ suitesparse:
 - '7'
 target_platform:
 - linux-ppc64le
+zip_keys:
+- - python
+  - channel_sources

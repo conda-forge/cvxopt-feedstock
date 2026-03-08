@@ -8,8 +8,6 @@ package:
 source:
   - url: https://pypi.org/packages/source/c/cvxopt/cvxopt-{{ version }}.tar.gz
     sha256: 8059cef41f1f115c87bc9b75fec9f86db95e7f0afcf03a52d619ba433e443bcb
-    patches:
-      - gh261.patch
 
   # on windows, building suitesparse in directly works much better than trying to build it separately and link it in
   - url: https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v{{ suitesparse_for_win_version }}.tar.gz  # [win]

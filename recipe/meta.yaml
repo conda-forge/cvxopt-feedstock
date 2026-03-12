@@ -8,15 +8,15 @@ package:
 source:
   - url: https://pypi.org/packages/source/c/cvxopt/cvxopt-{{ version }}.tar.gz
     sha256: 8059cef41f1f115c87bc9b75fec9f86db95e7f0afcf03a52d619ba433e443bcb
-    patches: # [win]
-      - 0003-fix-setup-on-windows.patch
+    patches:  # [win]
+      - 0003-fix-setup-on-windows.patch  # [win]
 
   # on windows, building suitesparse in directly works much better than trying to build it separately and link it in
   - url: https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v{{ suitesparse_for_win_version }}.tar.gz  # [win]
     sha256: fe3bc7c3bd1efdfa5cffffb5cebf021ff024c83b5daf0ab445429d3d741bd3ad  # [win]
     folder: suitesparse  # [win]
-    patches:   # [win]
-      - 0001-remove-BLAS_NO_UNDERSCORE-on-windows.patch                                                        # [win]
+    patches:  # [win]
+      - 0001-remove-BLAS_NO_UNDERSCORE-on-windows.patch  # [win]
 
 build:
   skip: true  # [py<35]

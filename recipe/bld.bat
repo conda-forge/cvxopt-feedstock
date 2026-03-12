@@ -25,7 +25,7 @@ set "CVXOPT_DSDP_LIB_DIR=%LIBRARY_PREFIX%\lib"
 set "CVXOPT_DSDP_INC_DIR=%LIBRARY_PREFIX%\include"
 
 :: recipe/meta.yaml downloads the suitesparse-sources to this folder; build it
-set "CVXOPT_SUITESPARSE_SRC_DIR=../suitesparse"
+set "CVXOPT_SUITESPARSE_SRC_DIR=suitesparse"
 
 %PYTHON% setup.py install --single-version-externally-managed --record=record.txt
 

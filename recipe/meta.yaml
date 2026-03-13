@@ -1,5 +1,5 @@
-{% set version = "1.3.2" %}
-{% set suitesparse_for_win_version = "5.7.2" %}
+{% set version = "1.3.3" %}
+{% set suitesparse_for_win_version = "7.12.2" %}
 
 package:
   name: cvxopt
@@ -7,20 +7,16 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/c/cvxopt/cvxopt-{{ version }}.tar.gz
-    sha256: 3461fa42c1b2240ba4da1d985ca73503914157fc4c77417327ed6d7d85acdbe6
-    patches:
-      - gh261.patch
+    sha256: 8059cef41f1f115c87bc9b75fec9f86db95e7f0afcf03a52d619ba433e443bcb
 
   # on windows, building suitesparse in directly works much better than trying to build it separately and link it in
   - url: https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v{{ suitesparse_for_win_version }}.tar.gz  # [win]
-    sha256: fe3bc7c3bd1efdfa5cffffb5cebf021ff024c83b5daf0ab445429d3d741bd3ad  # [win]
+    sha256: 679412daa5f69af96d6976595c1ac64f252287a56e98cc4a8155d09cc7fd69e8  # [win]
     folder: suitesparse  # [win]
-    patches:   # [win]
-      - 0001-remove-BLAS_NO_UNDERSCORE-on-windows.patch                                                        # [win]
 
 build:
   skip: true  # [py<35]
-  number: 5
+  number: 0
 
 requirements:
   build:
